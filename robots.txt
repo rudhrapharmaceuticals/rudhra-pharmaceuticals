@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trivenireddy386-ui.github.io/rudhra-pharmaceuticals/sitemap.xml
+Sitemap: https://rudhrapharmaceuticals.github.io/rudhra-pharmaceuticals/sitemap.xml
