@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="RUDHRA PHARMACEUTICALS product categories and healthcare products."><title>Products | RUDHRA PHARMACEUTICALS</title><link rel="stylesheet" href="styles.css"></head>
-<body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">R</span><span><strong>RUDHRA</strong><b>PHARMACEUTICALS</b><small>Better Health | Brighter Tomorrow</small></span></a><nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About Us</a><a class="active" href="products.html">Products</a><a href="index.html#services">Services</a><a href="index.html#quality">Quality</a><a href="index.html#contact">Contact</a></nav></div></header>
-<main><section class="page-hero"><div class="container"><p class="eyebrow">PRODUCTS</p><h1>Our Pharmaceutical Products</h1><p>Explore our pharmaceutical product categories. Our detailed product catalogue will be updated as products are added.</p></div></section>
-<section class="section"><div class="container"><div class="product-admin-note"><strong>Product catalogue:</strong> Detailed product photos, names, strengths, pack sizes and other approved information will be added here as the catalogue is updated.</div><div class="product-list">
-<article class="catalog-card"><div class="product-image">Product Photo</div><h2>Tablets & Capsules</h2><p>Pharmaceutical tablets and capsules. Product-specific details will be added to the catalogue.</p></article>
-<article class="catalog-card"><div class="product-image">Product Photo</div><h2>Syrups & Suspensions</h2><p>Liquid pharmaceutical products and suspensions. Product-specific details will be added to the catalogue.</p></article>
-<article class="catalog-card"><div class="product-image">Product Photo</div><h2>Injectables</h2><p>Injectable pharmaceutical products. Product-specific details will be added to the catalogue.</p></article>
-<article class="catalog-card"><div class="product-image">Product Photo</div><h2>Ointments & Creams</h2><p>Topical pharmaceutical products including ointments and creams.</p></article>
-<article class="catalog-card"><div class="product-image">Product Photo</div><h2>OTC & Healthcare Products</h2><p>OTC and healthcare products will be listed here as the catalogue is updated.</p></article>
-<article class="catalog-card"><div class="product-image">Product Photo</div><h2>Generic Medicines</h2><p>Generic pharmaceutical products will be listed here with their approved details.</p></article>
-</div></div></section></main>
-<footer class="footer"><div class="copyright">© <span id="year"></span> RUDHRA PHARMACEUTICALS. All Rights Reserved.</div></footer><script src="script.js"></script></body></html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RUDHRA PHARMACEUTICALS product catalogue and healthcare products.">
+<title>Products | RUDHRA PHARMACEUTICALS</title><link rel="stylesheet" href="styles.css">
+<style>
+.catalog-help{background:#f4f8fb;border-left:4px solid #176b87;padding:18px 20px;border-radius:10px;margin-bottom:28px}.catalog-help strong{display:block;margin-bottom:6px}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}.product-card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 8px 25px rgba(0,0,0,.08);border:1px solid #e7edf1}
+.product-photo{height:210px;border-radius:10px;background:#f4f6f7;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:15px;color:#7a858c;font-weight:600}.product-photo img{width:100%;height:100%;object-fit:contain;background:#fff}
+.product-card h2{font-size:20px;margin:8px 0}.product-meta{margin:6px 0;color:#53616a;font-size:14px}.product-enquire{display:inline-block;margin-top:12px;background:#159447;color:#fff;padding:10px 15px;border-radius:7px;text-decoration:none;font-weight:700}
+.empty-catalog{text-align:center;padding:45px 20px;background:#fff;border:1px dashed #c9d4da;border-radius:14px;color:#65727a}
+</style></head>
+<body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">R</span><span><strong>RUDHRA</strong><b>PHARMACEUTICALS</b><small>Better Health | Brighter Tomorrow</small></span></a>
+<nav class="nav"><a href="index.html">Home</a><a href="index.html#about">About Us</a><a class="active" href="products.html">Products</a><a href="index.html#services">Services</a><a href="index.html#quality">Quality</a><a href="index.html#contact">Contact</a></nav></div></header>
+<main><section class="page-hero"><div class="container"><p class="eyebrow">PRODUCTS</p><h1>Our Pharmaceutical Products</h1><p>Browse our product catalogue. Product photos and approved product information will be added as the catalogue is updated.</p></div></section>
+<section class="section"><div class="container"><div class="catalog-help"><strong>Easy catalogue update</strong>Add or edit products in <b>products-data.js</b>. For each product, enter the photo file name, product name, manufacturer, composition/strength, pack size and category. The Products page will display the information automatically.</div><div id="catalog" class="catalog-grid"></div></div></section></main>
+<footer class="footer"><div class="copyright">© <span id="year"></span> RUDHRA PHARMACEUTICALS. All Rights Reserved.</div></footer>
+<script src="products-data.js"></script><script>
+const catalog=document.getElementById('catalog');const whatsappNumber='919603403003';
+if(!products||products.length===0){catalog.innerHTML='<div class="empty-catalog"><h2>Product catalogue coming soon</h2><p>Product photos and details will be added here as products are added.</p></div>';}
+else{catalog.innerHTML=products.map(p=>`<article class="product-card"><div class="product-photo">${p.image?'<img src="'+p.image+'" alt="'+p.name+'" loading="lazy">':'Product Photo'}</div><h2>${p.name}</h2>${p.manufacturer?'<p class="product-meta"><strong>Manufacturer:</strong> '+p.manufacturer+'</p>':''}${p.composition?'<p class="product-meta"><strong>Composition/Strength:</strong> '+p.composition+'</p>':''}${p.pack?'<p class="product-meta"><strong>Pack Size:</strong> '+p.pack+'</p>':''}${p.category?'<p class="product-meta"><strong>Category:</strong> '+p.category+'</p>':''}${p.description?'<p class="product-meta">'+p.description+'</p>':''}<a class="product-enquire" href="https://wa.me/${whatsappNumber}?text=Hello%20RUDHRA%20PHARMACEUTICALS,%20I%20would%20like%20to%20enquire%20about%20${encodeURIComponent(p.name)}" target="_blank" rel="noopener">WhatsApp Enquiry</a></article>`).join('');}
+document.getElementById('year').textContent=new Date().getFullYear();
+</script></body></html>
