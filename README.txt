@@ -7,7 +7,7 @@ Files:
 - products.html — product catalogue
 - styles.css — responsive design
 - script.js — mobile navigation and newsletter demo
-
+-contact details.js -9603403003
 Note: contact details and Google Maps location currently use placeholders and should be replaced with the company's verified details before final launch.
 
 The site is designed for GitHub Pages and can later use the custom domain rudhrapharmaceuticals.com.
