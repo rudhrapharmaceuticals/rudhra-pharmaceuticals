@@ -31,7 +31,7 @@ const products = [
     description: "Prescription medicine. Product information and enquiries only."
   },
   {
-    image: "images/atoja-asp.webp",
+    image: "images/atoja-asp-clean.jpg",
     name: "Atoja™ ASP 75/10",
     manufacturer: "Divine’s Biotec",
     composition: "Atorvastatin 10 mg + Aspirin 75 mg",
